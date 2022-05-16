@@ -1,0 +1,19 @@
+Motivação
+	A motivação é que uma pessoa pode partilhar com amigos e familiares as suas coisas favoritas em relação a vários tópicos, podendo partilhar esses gostos e ficam a conhecer outros novos que também lhes possam interessar.
+
+Tasks
+
+- Criar uma lista
+- Criar um grupo
+- Associar uma lista existente a um grupo
+- Autenticar com uma conta google
+- Partilhar grupos
+- Definir a visibilidade de um grupo (publico ou apenas entre amigos)
+- Pedidos de amizade
+- Pesquisar perfis e observar as suas listas
+
+Tools
+	Não uso nenhuma ferramenta semelhante
+
+Learn to do the tasks
+	Ao usar aplicações como redes social, já estamos habituados à 'workflow' de um sistema de perfis e na sua pesquisa e num sistema de pedidos de amizade.
