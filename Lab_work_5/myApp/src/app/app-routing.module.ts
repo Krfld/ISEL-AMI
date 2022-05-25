@@ -5,6 +5,18 @@ const routes: Routes = [
   {
     path: '',
     loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule)
+  },
+  {
+    path: 'tab3',
+    loadChildren: () => import('./tabs/tabs.module')
+  },
+  {
+    path: 'modalpage',
+    loadChildren: () => import('./modalpage/modalpage.module').then(m => m.ModalpagePageModule)
+  },
+  {
+    path: 'videoplay/:sid',
+    loadChildren: () => import('./videoplay/videoplay.module').then(m => m.VideoplayPageModule)
   }
 ];
 @NgModule({
@@ -13,4 +25,4 @@ const routes: Routes = [
   ],
   exports: [RouterModule]
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }
