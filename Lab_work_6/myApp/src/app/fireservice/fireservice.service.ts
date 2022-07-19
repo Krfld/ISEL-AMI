@@ -8,21 +8,32 @@ import * as firebase from 'firebase/app';
 })
 export class FireserviceService {
   private snapshotChangesSubscription: any;
-  constructor(
-    public af: AngularFirestore,
-  ) { } getTasks() {
-    return this.af.collection('tasks').snapshotChanges();
+  constructor(public af: AngularFirestore) { }
+  getTasks() {
+    let currentUser = firebase.auth().currentUser;
+    return
+    this.af.collection('people').doc(currentUser.uid).collection('tasks').snapshotChanges();
   }
   createTask(t: Task) {
-    return this.af.collection('tasks').add(t);
+    let currentUser = firebase.auth().currentUser;
+    return
+    this.af.collection('people').doc(currentUser.uid).collection('tasks').add(
+      t);
   }
   updateTask(TaskID: any, t: Task) {
-    this.af.collection('tasks').doc(TaskID).set(t);
+    let currentUser = firebase.auth().currentUser;
+    this.af.collection('people').doc(currentUser.uid).collection('tasks').doc(
+      TaskID).set(t);
+    //this.af.doc('tasks/' + TaskID).update(t);
   }
   deleteTask(TaskID: any) {
-    this.af.collection('tasks').doc(TaskID).delete();
+    let currentUser = firebase.auth().currentUser;
+    this.af.collection('people').doc(currentUser.uid).collection('tasks').doc(
+      TaskID).delete();
+    //this.af.doc('tasks/' + TaskID).delete();
   }
   unsubscribeOnLogOut() {
+    //remember to unsubscribe from the snapshotChanges
     this.snapshotChangesSubscription.unsubscribe();
   }
 }

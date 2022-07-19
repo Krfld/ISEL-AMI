@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { IonItemSliding } from '@ionic/angular';
+import { FireserviceService } from '../fireservice/fireservice.service';
+import { Task } from '../tasks';
 
 @Component({
   selector: 'app-home',
@@ -8,7 +11,7 @@ import { Component } from '@angular/core';
 export class HomePage {
   tasks: Array<any> = [];
 
-  constructor() {
+  constructor(private fser: FireserviceService) {
     this.tasks = [
       { title: "Milk", status: "open" },
       { title: "Eggs", status: "open" },
@@ -16,22 +19,44 @@ export class HomePage {
     ];
   }
 
+  ngOnInit() {
+    this.fser.getTasks().subscribe(data => {
+      this.tasks = data.map(e => {
+        return {
+          $key: e.payload.doc.id,
+          title: e.payload.doc.data()['title'],
+          status: e.payload.doc.data()['status'],
+        };
+      });
+      console.log(this.tasks);
+    });
+  }
+
   addTask() {
-    let theNewTask: string = prompt("New Task");
-    if (theNewTask !== "") {
-      this.tasks.push({ title: theNewTask, status: "open" });
+    let ntask: string = prompt("New Task");
+    if (ntask !== "") {
+      let t: Task = { $key: '', title: ntask, status: 'open' };
+      console.log(t);
+      this.fser.createTask(t).then(resp => {
+        console.log("createTask: then - " + resp);
+      })
+        .catch(error => {
+          console.log("createTask: catch - " + error);
+        });
+      console.log("addTask: " + this.tasks);
     }
   }
 
-  markAsDone(slidingItem, task) {
-    task.status = "done";
+  markAsDone(slidingItem: IonItemSliding, task: any) {
+    task.status = (task.status === "done") ? "open" : "done";
+    console.log("markAsDone " + task);
+    this.fser.updateTask(task.$key, task);
     slidingItem.close();
   }
 
-  removeTask(slidingItem, task) {
+  removeTask(slidingItem: IonItemSliding, task: any) {
     task.status = "removed";
-    // Include code to remove the task element of the array tasks
-    this.tasks = this.tasks.filter(value => value !== task);
+    this.fser.deleteTask(task.$key);
     slidingItem.close();
   }
 }
