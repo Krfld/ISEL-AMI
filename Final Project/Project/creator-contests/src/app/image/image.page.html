@@ -1,9 +1,27 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>image</ion-title>
-  </ion-toolbar>
+  <ion-tabs>
+    <ion-tab-bar slot="top">
+      <ion-tab-button tab="open">
+        <ion-text>Open</ion-text>
+      </ion-tab-button>
+
+      <ion-tab-button tab="vote">
+        <ion-text>Vote</ion-text>
+      </ion-tab-button>
+
+      <ion-tab-button tab="winners">
+        <ion-text>Winners</ion-text>
+      </ion-tab-button>
+    </ion-tab-bar>
+  </ion-tabs>
 </ion-header>
 
 <ion-content>
-
+  <ion-fab vertical="bottom" horizontal="center" slot="">
+    <ion-tab-button>
+      <ion-fab-button>
+        <ion-icon name="add"></ion-icon>
+      </ion-fab-button>
+    </ion-tab-button>
+  </ion-fab>
 </ion-content>

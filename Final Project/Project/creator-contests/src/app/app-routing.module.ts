@@ -4,23 +4,32 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {
     path: '',
-    loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule)
+    redirectTo: 'home',
+    pathMatch: 'full'
   },
+  // {
+  //   path: 'login',
+  //   loadChildren: () => import('./login/login.module').then(m => m.LoginPageModule)
+  // },
+  // {
+  //   path: 'register',
+  //   loadChildren: () => import('./register/register.module').then(m => m.RegisterPageModule)
+  // },
   {
-    path: 'image',
+    path: 'home',
     loadChildren: () => import('./image/image.module').then(m => m.ImagePageModule)
   },
   {
-    path: 'video',
-    loadChildren: () => import('./video/video.module').then( m => m.VideoPageModule)
+    path: 'open',
+    loadChildren: () => import('./open/open.module').then(m => m.OpenPageModule)
   },
   {
-    path: 'music',
-    loadChildren: () => import('./music/music.module').then( m => m.MusicPageModule)
+    path: 'vote',
+    loadChildren: () => import('./vote/vote.module').then( m => m.VotePageModule)
   },
   {
-    path: 'text',
-    loadChildren: () => import('./text/text.module').then( m => m.TextPageModule)
+    path: 'winners',
+    loadChildren: () => import('./winners/winners.module').then( m => m.WinnersPageModule)
   }
 ];
 @NgModule({

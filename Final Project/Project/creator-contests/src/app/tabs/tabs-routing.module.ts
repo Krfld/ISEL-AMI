@@ -12,28 +12,11 @@ const routes: Routes = [
         loadChildren: () => import('../image/image.module').then(m => m.ImagePageModule)
       },
       {
-        path: 'video',
-        loadChildren: () => import('../video/video.module').then(m => m.VideoPageModule)
-      },
-      {
-        path: 'music',
-        loadChildren: () => import('../music/music.module').then(m => m.MusicPageModule)
-      },
-      {
-        path: 'text',
-        loadChildren: () => import('../text/text.module').then(m => m.TextPageModule)
-      },
-      {
         path: '',
         redirectTo: '/tabs/image',
         pathMatch: 'full'
       }
     ]
-  },
-  {
-    path: '',
-    redirectTo: '/tabs/image',
-    pathMatch: 'full'
   }
 ];
 

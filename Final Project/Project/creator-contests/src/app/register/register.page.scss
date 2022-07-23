@@ -1,0 +1,27 @@
+.error-message {
+    color: var(--ion-color-danger);
+    font-size: 12px;
+}
+
+.success-message {
+    color: var(--ion-color-success);
+    font-size: 12px;
+}
+
+.go-to-login {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.submit-btn {
+    margin-top: 40px;
+}
+
+a:hover {
+    cursor: pointer;
+}
+
+.form {
+    padding: 12px;
+    margin: 12px;
+}

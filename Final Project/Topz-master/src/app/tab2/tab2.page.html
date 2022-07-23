@@ -1,0 +1,36 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Tops
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="background">
+  <ion-list>
+    <ion-card *ngFor="let top of tops" class="top" (click)="openTop(top.$key)">
+
+      <ion-label class="title" color="black">
+        <span style="color: black; font-weight: 600;">TOP </span>
+        <span style="color: var(--ion-color-primary); font-weight: bold;">{{top.top}} </span>
+        <span style="color: black; font-weight: 600;">{{top.title}}</span>
+      </ion-label>
+      <ion-item-divider></ion-item-divider>
+      <ion-row center>
+        <ion-label class="date">
+          {{top.date}}
+        </ion-label>
+        <span (click)="$event.preventDefault(); $event.stopPropagation(); openPopover(top);">
+          <ion-icon color="black" id="trigger-button" name="menu"></ion-icon>
+          <ion-popover dismissOnSelect="true" [isOpen]="isPopoverOpen.get(top.$key)" (ionPopoverDidDismiss)="closePopover(top)">
+            <ng-template>
+              <ion-label class="popover-option" (click)="openTop(top.$key)">View</ion-label>
+              <ion-label class="popover-option" (click)="editTop(top.$key)">Edit</ion-label>
+              <ion-label class="popover-option" (click)="deleteTop(top.$key)">Delete</ion-label>
+            </ng-template>
+          </ion-popover>
+        </span>
+      </ion-row>
+    </ion-card>
+  </ion-list>
+</ion-content>

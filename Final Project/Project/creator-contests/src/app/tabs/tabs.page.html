@@ -1,7 +1,21 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>Tabs</ion-title>
-  </ion-toolbar>
+  <ion-title>Tabs</ion-title>
+
+  <ion-tabs>
+    <ion-tab-bar slot="top">
+      <ion-tab-button tab="open">
+        <ion-text>Open</ion-text>
+      </ion-tab-button>
+
+      <ion-tab-button tab="vote">
+        <ion-text>Vote</ion-text>
+      </ion-tab-button>
+
+      <ion-tab-button tab="winners">
+        <ion-text>Winners</ion-text>
+      </ion-tab-button>
+    </ion-tab-bar>
+  </ion-tabs>
 </ion-header>
 
 <ion-content>
@@ -15,11 +29,7 @@
         <ion-icon name="logo-youtube"></ion-icon>
       </ion-tab-button>
 
-      <ion-tab-button>
-        <ion-fab-button>
-          <ion-icon name="add"></ion-icon>
-        </ion-fab-button>
-      </ion-tab-button>
+      <ion-tab-button disabled="true"></ion-tab-button>
 
       <ion-tab-button tab="music">
         <ion-icon name="musical-notes"></ion-icon>
@@ -30,4 +40,12 @@
       </ion-tab-button>
     </ion-tab-bar>
   </ion-tabs>
+
+  <ion-fab vertical="bottom" horizontal="center" slot="">
+    <ion-tab-button>
+      <ion-fab-button>
+        <ion-icon name="add"></ion-icon>
+      </ion-fab-button>
+    </ion-tab-button>
+  </ion-fab>
 </ion-content>

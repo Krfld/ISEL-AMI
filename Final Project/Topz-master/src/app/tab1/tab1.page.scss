@@ -1,0 +1,107 @@
+.background {
+    --ion-background-color: #F8F2ED;
+}
+
+.welcome-card ion-img {
+    max-height: 35vh;
+    overflow: hidden;
+}
+
+ion-card {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: 0;
+}
+
+ion-label {
+    margin-top: 2.4;
+    border: 0;
+    padding: 0;
+    font-size: 1.2rem;
+}
+
+ion-fab {
+    ion-fab-list {
+        transform: translateX(-96%);
+    }
+
+    ion-item {
+        width: 131%;
+        height: 100%;
+        --background: rgb(248, 248, 248);
+    }
+}
+
+.logo {
+    padding-top: 24px;
+    width: 50%;
+}
+
+.top {
+    --ion-background-color: white;
+
+    padding-right: 16px;
+    padding-left: 16px;
+    padding-top: 20px;
+    padding-bottom: 12px;
+
+    border-radius: 16px;
+}
+
+.title {
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.date {
+    font-size: 12px;
+    color: gray;
+    font-weight: bold;
+    font-family: 'Red Hat Mono';
+}
+
+.welcome {
+    font-size: 14px;
+    font-weight: 500;
+    color: black;
+    margin: 0;
+    padding-top: 12px;
+}
+
+.username {
+    font-size: 22px;
+    font-weight: bold;
+    color: var(--ion-color-primary);
+    margin: 0;
+}
+
+.username-row {
+    padding-bottom: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center !important;
+}
+
+.timeline-item-row {
+    padding-bottom: 12px;
+    display: flex;
+    justify-content: start;
+    align-items: center !important;
+}
+
+ion-item-divider {
+    margin-top: 12px;
+    margin-bottom: 12px;
+    padding-top: 0px;
+    min-height: 1px !important;
+}
+
+ion-col {
+    padding: 0px;
+    margin: 0px
+}
+
+.clipboard {
+    padding-right: 16px;
+    width: 32%;
+}
